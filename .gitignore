@@ -1,0 +1,40 @@
+## --- Standard .NET / Visual Studio Ignore ---
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+*.user
+*.suo
+*.sln.docstates
+.vs/
+.history/
+
+## --- .NET MAUI Specific ---
+# Ignore generated files
+Generated\ Files/
+**/[Bb]in/*
+**/[Oo]bj/*
+
+## --- NuGet ---
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+## --- Rider / IntelliJ / VS Code ---
+.idea/
+.vscode/
+*.DotSettings.user
+
+## --- macOS System Files ---
+.DS_Store
+
+## --- SECURITY: Private Configuration ---
+# To blokuje wysyłanie Twojego klucza API
+**/AppConfig.cs
+
+# Ale pozwalamy na wysyłanie szablonu (przykładu)
+!**/AppConfig.Example.cs
+
+## --- OS Specific ---
+Thumbs.db
+desktop.ini

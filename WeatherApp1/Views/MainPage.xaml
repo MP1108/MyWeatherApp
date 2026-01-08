@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherApp1.Views.MainPage"
+             BackgroundImageSource="backgroundimage.png"
+             Title=""
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*, Auto">
+        <ScrollView Grid.Row="0" Grid.RowSpan="2" Padding="0, 0, 0, 100">
+            <VerticalStackLayout Spacing="25" Margin="0, 70, 0, 0">
+
+                <VerticalStackLayout Padding="30, 0">
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label x:Name="City" Text="Loading..." FontFamily="PixelFont" TextColor="White" FontSize="40"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label x:Name="MainTempLabel" Text="" TextColor="White" FontSize="40" FontFamily="PixelFont"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label x:Name="MainConditionLabel" Text="" TextColor="Grey" FontFamily="PixelFont"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center" Margin="0, 0, 0, 40" Spacing="20">
+                        <Label x:Name="MaxTempLabel" Text="H:--" TextColor="White" FontFamily="PixelFont"/>
+                        <Label x:Name="MinTempLabel" Text="L:--" TextColor="White" FontFamily="PixelFont"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Image Source="pixel_house.png" HeightRequest="350" WidthRequest="350"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <Border StrokeThickness="4" Stroke="#E61F1D47" Padding="20" Margin="0, -70, 0, 0" x:Name="FullBorder">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#E695ABD9" Offset="0" />
+                            <GradientStop Color="#E61F1D47" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="30"/>
+                    </Border.StrokeShape>
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.4" Radius="25" Offset="0,10"/>
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Margin="0, 20, 0, 0">
+                        <Grid RowDefinitions="*, *" RowSpacing="20" Padding="0">
+                            <Border x:Name="HourlyBox" Grid.Row="0" StrokeThickness="0" StrokeShape="RoundRectangle 40" BackgroundColor="#1F1D47" Padding="20, 10, 0, 10">
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Image Source="clock_white.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="20" HeightRequest="20" Margin="10, 0 ,0, 0"/>
+                                        <Label Text="Hourly forecast" FontFamily="PixelFont" FontSize="18" TextColor="White" Margin="20, 0, 0, 0"/>
+                                    </HorizontalStackLayout>
+                                    <CollectionView ItemsSource="{Binding HourlyWeather}" HeightRequest="140" HorizontalScrollBarVisibility="Never">
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border HeightRequest="120" WidthRequest="60" StrokeThickness="3" BackgroundColor="#1F1D47" Stroke="#1F1D47">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                            <GradientStop Color="#E65A6490" Offset="0" />
+                                                            <GradientStop Color="#E6496F94" Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <Border.StrokeShape><RoundRectangle CornerRadius="60"/></Border.StrokeShape>
+                                                    <VerticalStackLayout VerticalOptions="Center" Margin="0, 10, 0, 10">
+                                                        <Label Text="{Binding Time}" HorizontalTextAlignment="Center" TextColor="White" FontFamily="PixelFont"/>
+                                                        <Image Source="{Binding Icon}" HeightRequest="50" WidthRequest="50"/>
+                                                        <Label Text="{Binding Temperature}" HorizontalTextAlignment="Center" TextColor="White" FontFamily="PixelFont"/>
+                                                    </VerticalStackLayout>
+                                                </Border>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <Border Grid.Row="1" StrokeThickness="0" StrokeShape="RoundRectangle 40" BackgroundColor="#1F1D47" Padding="20, 10, 0, 10" x:Name="WeeklyBox">
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Image Source="calendar_white.png" HeightRequest="20" WidthRequest="20" Margin="10, 0, 0, 0"/>
+                                        <Label Text="10-day forecast" FontFamily="PixelFont" FontSize="18" TextColor="White" Margin="10, 0, 0, 0"/>
+                                    </HorizontalStackLayout>
+                                    <CollectionView ItemsSource="{Binding WeeklyWeather}" HeightRequest="190" HorizontalScrollBarVisibility="Never">
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                                        </CollectionView.ItemsLayout>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border HeightRequest="170" WidthRequest="60" StrokeThickness="3" Stroke="#1F1D47">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                            <GradientStop Color="#E65A6490" Offset="0" />
+                                                            <GradientStop Color="#E6496F94" Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <Border.StrokeShape><RoundRectangle CornerRadius="60"/></Border.StrokeShape>
+                                                    <VerticalStackLayout VerticalOptions="Center" Margin="0, 15, 0, 15">
+                                                        <Label HorizontalTextAlignment="Center" Text="{Binding HTemp}" FontFamily="PixelFont" TextColor="White" FontSize="20" Margin="0, 0, 0, -5"/>
+                                                        <Label HorizontalTextAlignment="Center" FontSize="20" Text="{Binding LTemp}" FontFamily="PixelFont" TextColor="Gray" Margin="0, 0, 0, 5"/>
+                                                        <Image Source="{Binding Icon}" HeightRequest="50" WidthRequest="50"/>
+                                                        <Label Text="{Binding Date}" FontSize="15" HorizontalTextAlignment="Center" TextColor="White" FontFamily="PixelFont"/>
+                                                    </VerticalStackLayout>
+                                                </Border>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+
+                        <VerticalStackLayout Padding="20" Spacing="15">
+                             <Border BackgroundColor="#1F1D47" StrokeThickness="0" Padding="20" Margin="0, 0, 0, 0" x:Name="AirQualityBox">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+                                <VerticalStackLayout Spacing="15">
+                                    <Label Text="AIR QUALITY" TextColor="#9B8BC4" FontSize="14" FontFamily="PixelFont"/>
+                                    <Label Text="3-Low Health Risk" TextColor="White" FontSize="24" FontAttributes="Bold" FontFamily="PixelFont"/>
+                                    <ProgressBar Progress="0.7" ProgressColor="#E91E63" HeightRequest="8" Margin="0,10,0,0"/>
+                                    <Grid>
+                                        <Label Text="See more" TextColor="White" FontSize="16" VerticalOptions="Center" FontFamily="PixelFont"/>
+                                        <Label Text="›" TextColor="White" FontSize="24" HorizontalOptions="End" VerticalOptions="Center" FontFamily="PixelFont"/>
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <Grid ColumnDefinitions="*, *" RowDefinitions="*, *" ColumnSpacing="15" RowSpacing="15">
+                                <Border Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1D47" StrokeThickness="0" Padding="15" x:Name="Box1">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="8">
+                                        <Label Text="⏲ PRESSURE" TextColor="#9B8BC4" FontSize="11" FontFamily="PixelFont"/>
+                                        <Label x:Name="PressureLabel" Text="--" TextColor="White" FontSize="25" FontFamily="PixelFont"/> 
+                                        <Label Text="hPa" TextColor="White" FontSize="16" FontFamily="PixelFont"/>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <Border Grid.Column="0" Grid.Row="1" BackgroundColor="#1F1D47" StrokeThickness="0" Padding="15" x:Name="Box2">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="8">
+                                        <Label Text="☀️ SUNRISE" TextColor="#9B8BC4" FontSize="11" FontFamily="PixelFont"/>
+                                        <Label x:Name="SunriseLabel" Text="--:--" TextColor="White" FontSize="30" FontFamily="PixelFont"/>
+                                        <ProgressBar Progress="0.4" ProgressColor="#4A90E2" BackgroundColor="#5A4B8A" HeightRequest="6" Margin="0,8,0,0"/>
+                                        <Label x:Name="SunsetLabel" Text="Sunset: --:--" TextColor="White" FontSize="14" FontFamily="PixelFont"/>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <Border Grid.Column="1" Grid.Row="0" BackgroundColor="#1F1D47" StrokeThickness="0" Padding="15" x:Name="Box3">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="8">
+                                        <Label Text="🌬 WIND" TextColor="#9B8BC4" FontSize="11" FontFamily="PixelFont"/>
+                                        <Label x:Name="WindLabel" Text="--" TextColor="White" FontSize="30" FontFamily="PixelFont"/>
+                                        <Label Text="km/h" TextColor="White" FontSize="16" FontFamily="PixelFont"/>
+                                    </VerticalStackLayout>
+                                </Border>
+
+                                <Border Grid.Column="1" Grid.Row="1" BackgroundColor="#1F1D47" StrokeThickness="0" Padding="15" x:Name="Box4">
+                                    <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+                                    <VerticalStackLayout Spacing="8">
+                                        <Label Text="💧 HUMIDITY" TextColor="#9B8BC4" FontSize="11" FontFamily="PixelFont"/>
+                                        <Label x:Name="HumidityLabel" Text="--" TextColor="White" FontSize="42" FontFamily="PixelFont"/>
+                                        <Label Text="%" TextColor="White" FontSize="16" FontFamily="PixelFont"/>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <Border Grid.Row="1" Padding="10" HeightRequest="60" WidthRequest="60" HorizontalOptions="End" Margin="0, 0, 30, 20" BackgroundColor="#DD48319D">
+            <Border.StrokeShape><RoundRectangle CornerRadius="20"/></Border.StrokeShape>
+            <Button Grid.Column="2" ImageSource="weathers.png" WidthRequest="60" HeightRequest="60" BackgroundColor="Transparent" HorizontalOptions="Center" Clicked="GoToAllWeathers" CornerRadius="20"/>
+        </Border>
+    </Grid>
+</ContentPage>
