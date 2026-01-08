@@ -1,31 +1,34 @@
 # 🌤️ Pixel Weather App (.NET MAUI)
 
-A stylish weather application built with **.NET MAUI**, featuring a unique pixel-art aesthetic. This app provides real-time weather data and a sleek dashboard for multiple cities.
+[![.NET MAUI](https://img.shields.io/badge/.NET-10.0-blueviolet)](https://dotnet.microsoft.com/en-us/apps/maui)
+[![Platform](https://img.shields.io/badge/Platforms-Android%20|%20iOS%20|%20Windows%20|%20Mac-blue)](https://dotnet.microsoft.com/en-us/apps/maui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## ✨ Features
-- **Real-time Weather:** Fetches live data from OpenWeatherMap API.
-- **City Dashboard:** Monitor weather for multiple cities in a scrollable list.
-- **Fast Performance:** Uses asynchronous parallel data fetching for optimal speed.
-- **Secure Configuration:** API keys are managed via a template system to keep them private.
-
-## 📸 Preview
-App design is based on a pixel-art theme:
-![App Preview](https://github.com/MP1108/MyWeatherApp/raw/main/WeatherApp1/Resources/Images/pixel_art_preview.png)
-*(Note: Replace this link with a direct path to your screenshot if needed)*
-
-## 🚀 Setup & Installation
-To protect my private API keys, they are not included in this repository. To run the app:
-1. **Clone the repository:** `git clone https://github.com/MP1108/MyWeatherApp.git`
-2. **Setup Config:** Go to `WeatherApp1/Services/`.
-3. **Rename File:** Create a copy of `AppConfig.Example.cs` and name it `AppConfig.cs`.
-4. **Add Key:** Open `AppConfig.cs` and insert your [OpenWeatherMap API Key](https://openweathermap.org/api).
-5. **Run:** Open the solution in Rider or Visual Studio and hit Run.
-
-## 🛠️ Tech Stack
-- **Framework:** .NET MAUI
-- **Language:** C# / XAML
-- **Data:** Newtonsoft.Json (JSON Parsing)
-- **Design Source:** [Weather App UI Design by Aksonvady](https://www.figma.com/community/file/11008262945364295)
+A cutting-edge, cross-platform weather application built with **.NET 10 MAUI**, featuring a unique pixel-art aesthetic.
 
 ---
-*Created by [MP1108](https://github.com/MP1108)*
+
+## 📸 Preview
+<p align="center">
+  <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="350" alt="Pixel Weather App Interface">
+</p>
+
+## ✨ Technical Highlights
+* **Built on .NET 10:** Leveraging the latest performance optimizations and language features of C#.
+* **Modern API Integration:** Robust consumption of OpenWeatherMap API services.
+* **Optimized Concurrency:** Utilizes `Task.WhenAll` for non-blocking, parallel city data fetching.
+* **Secure Configuration:** API keys are managed via a template system (`AppConfig.Example.cs`) to prevent exposure of sensitive credentials.
+
+## 🛠️ Tech Stack
+* **Framework:** .NET MAUI v10.0
+* **Language:** C#
+* **Architecture:** MVVM (Model-View-ViewModel)
+* **Libraries:** Newtonsoft.Json
+
+## 📂 Project Structure
+```text
+WeatherApp1/
+├── Services/          # Data Providers & API Clients
+├── Views/             # XAML Pages
+├── Models/            # POCO Classes
+└── Resources/         # Pixel-art Assets & Fonts
