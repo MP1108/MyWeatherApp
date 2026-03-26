@@ -12,7 +12,7 @@
 <p align="center">
   <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="240" alt="Home Screen"/>
   &nbsp;&nbsp;
-  <img src="WeatherApp1/Resources/Images/README_Images/View2.png" width="220" alt="Forecast & Details"/>
+  <img src="WeatherApp1/Resources/Images/README_Images/View2.png" width="225" alt="Forecast & Details"/>
   &nbsp;&nbsp;
   <img src="WeatherApp1/Resources/Images/README_Images/View3.png" width="230" alt="All Cities"/>
 </p>
