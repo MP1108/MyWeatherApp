@@ -10,7 +10,7 @@
 *A cross-platform weather application built with .NET 10 MAUI, featuring a pixel-art aesthetic and real-time data from OpenWeatherMap.*
 
 <p align="center">
-  <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="220" alt="Home Screen"/>
+  <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="230" alt="Home Screen"/>
   &nbsp;&nbsp;
   <img src="WeatherApp1/Resources/Images/README_Images/View2.png" width="220" alt="Forecast & Details"/>
   &nbsp;&nbsp;
@@ -50,7 +50,7 @@
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/your-username/pixel-weather-app.git
+git clone https://github.com/MP1108/MyWeatherApp.git
 cd pixel-weather-app
 ```
 
