@@ -7,14 +7,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![OpenWeatherMap](https://img.shields.io/badge/API-OpenWeatherMap-orange?style=for-the-badge)](https://openweathermap.org/api)
 
-*A cross-platform weather application built with .NET 10 MAUI, featuring a pixel-art aesthetic and real-time data from OpenWeatherMap.*
+*Simple cross-platform weather app built with .NET MAUI using OpenWeatherMap API.*
 
 <p align="center">
-  <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="230" alt="Home Screen"/>
+  <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="240" alt="Home Screen"/>
   &nbsp;&nbsp;
   <img src="WeatherApp1/Resources/Images/README_Images/View2.png" width="220" alt="Forecast & Details"/>
   &nbsp;&nbsp;
-  <img src="WeatherApp1/Resources/Images/README_Images/View3.png" width="220" alt="All Cities"/>
+  <img src="WeatherApp1/Resources/Images/README_Images/View3.png" width="230" alt="All Cities"/>
 </p>
 
 </div>
@@ -37,7 +37,7 @@
 ## Tech Stack
 
 - **Framework:** .NET 10 MAUI
-- **Language:** C# 
+- **Language:** C# 13
 - **API:** [OpenWeatherMap](https://openweathermap.org/api) — Current Weather, Forecast, Air Pollution endpoints
 - **Serialization:** Newtonsoft.Json
 - **Concurrency:** `Task.WhenAll` for parallel city fetching
@@ -86,9 +86,16 @@ Theme is determined at launch by local device time (06:00–18:00 = day):
 public class TimeCheck
 {
     public int hour = DateTime.Now.Hour;
-    public bool CheckTime() => hour > 6 && hour < 18;
+   public bool CheckTime() => hour >= 6 && hour < 18;
 }
 ```
 
 Day → `day_background.png` + blue accent palette  
 Night → `backgroundimage.png` + purple/indigo palette
+
+---
+
+## Notes
+
+This is a personal project built for learning .NET MAUI and working with APIs.
+There are probably bugs and things to improve.
