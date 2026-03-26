@@ -37,7 +37,7 @@
 ## Tech Stack
 
 - **Framework:** .NET 10 MAUI
-- **Language:** C# 13
+- **Language:** C# 
 - **API:** [OpenWeatherMap](https://openweathermap.org/api) — Current Weather, Forecast, Air Pollution endpoints
 - **Serialization:** Newtonsoft.Json
 - **Concurrency:** `Task.WhenAll` for parallel city fetching
