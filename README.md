@@ -10,7 +10,7 @@
 *Simple cross-platform weather app built with .NET MAUI using OpenWeatherMap API.*
 
 <p align="center">
-  <img src="WeatherApp1/Resources/Images/README_Images/homepageview.png" width="240" alt="Home Screen"/>
+  <img src="WeatherApp1/Resources/Images/README_Images/homepagevieww.png" width="240" alt="Home Screen"/>
   &nbsp;&nbsp;
   <img src="WeatherApp1/Resources/Images/README_Images/view.png" width="225" alt="Forecast & Details"/>
   &nbsp;&nbsp;
